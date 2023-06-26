@@ -14,7 +14,10 @@ if (userWords.Length < 2)
 for (var i = 0; i < userWords.Length; i++)
 {
     if (i == 0 || i == userWords.Length - 1)
-        userWords[i] = char.ToUpper(userWords[i][0]) + userWords[i][1..];
+    {
+        var currentWord = userWords[i];
+        userWords[i] = char.ToUpper(currentWord[0]) + currentWord.Substring(1);
+    }
 }
 var result = string.Join(" ", userWords);
 
