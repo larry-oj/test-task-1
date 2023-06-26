@@ -5,6 +5,12 @@ var userInput = Console.ReadLine();
 userInput = userInput?.ToLower();
 
 var userWords = Regex.Split(userInput, @"\s+");
+if (userWords.Length < 2)
+{
+    Console.WriteLine("You need both name and surname!");
+    return;
+}
+
 for (var i = 0; i < userWords.Length; i++)
 {
     if (i == 0 || i == userWords.Length - 1)
