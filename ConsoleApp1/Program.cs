@@ -1,3 +1,15 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System.Text.RegularExpressions;
 
-Console.WriteLine("Hello, World!");
+Console.Write("Enter your name and surname:");
+var userInput = Console.ReadLine();
+userInput = userInput?.ToLower();
+
+var userWords = Regex.Split(userInput, @"\s+");
+for (var i = 0; i < userWords.Length; i++)
+{
+    if (i == 0 || i == userWords.Length - 1)
+        userWords[i] = char.ToUpper(userWords[i][0]) + userWords[i][1..];
+}
+var result = string.Join(" ", userWords);
+
+Console.WriteLine("Greetings, " + result + "!");
